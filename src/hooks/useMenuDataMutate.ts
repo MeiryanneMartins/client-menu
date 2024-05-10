@@ -4,12 +4,12 @@ import { WineData } from '../interface/WineData';
 
 const API_URL = 'http://localhost:8080';
 
-const postData = async (data: WineData): AxiosPromise<any> => {
+const postData = async (data: WineData): AxiosPromise<unknown> => {
   const response = axios.post(API_URL + '/menu', data);
   return response;
 }
 
-export function useMenuData(){
+export function useMenuDataMutate(){
   const queryClient = useQueryClient();
   const mutate = useMutation({
     mutationFn: postData,
